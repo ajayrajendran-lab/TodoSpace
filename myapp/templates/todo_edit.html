@@ -1,0 +1,26 @@
+{%extends 'base.html'%}
+
+{%block main_block%}
+
+<div class="container">
+    <div class="row">
+        <div class="col-2"></div>
+        <div class="col-8 border border-2 rounded shadow p-5">
+            <form action="" method="post">
+                {%for m in messages%}
+                <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                    <strong>{{m}}</strong>.
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                  </div>
+                {%endfor%}
+                <h2 class="text-center text-success">Update Task</h2>
+                {%csrf_token%}
+                {{form}}
+                <div class="text-center mt-3"><button type="submit" class="btn btn-success">Update Task</button></div>
+            </form>
+        </div>
+        <div class="col-2"></div>
+    </div>
+</div>
+
+{%endblock%}

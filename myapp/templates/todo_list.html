@@ -1,0 +1,47 @@
+{%extends 'base.html'%}
+
+{%block main_block%}
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-1"></div>
+        <div class="col-10">
+            {%for m in messages%}
+                <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                    <strong>{{m}}</strong>.
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                  </div>
+                {%endfor%}
+            <table class="table border table-striped rounded shadow">
+                <thead class="table-dark">
+                        <tr>
+                            <th><i class="bi bi-hash"></i> #</th>
+                            <th><i class="bi bi-pencil-square"></i>Title</th>
+                            <th><i class="bi bi-tags"></i>Category</th>
+                            <th><i class="bi bi-calendar"></i>Created</th>
+                            <th><i class="bi bi-calendar-check"></i>Due Date</th>
+                            <th><i class="bi bi-award-fill"></i>Priority</th>
+                            <th><i class="bi bi-flag"></i>Status</th>
+                            <th><i class="bi bi-tools"></i> Actions</th>
+                        </tr>
+                </thead>
+                {%for d in data%}
+                <tr>
+                    <td>{{forloop.counter}}</td>
+                    <td>{{d.title}}</td>
+                    <td>{{d.category}}</td>
+                    <td>{{d.created_at|date}}</td>
+                    <td>{{d.due_date}}</td>
+                    <td>{{d.priority}}</td>
+                    <td>{{d.status}}</td>
+                    <td>
+                        <a href="{%url 'todo-change' d.id%}" class="btn btn-primary btn-sm"><i class="bi bi-pencil"></i> Edit</a>
+                        <a href="{%url 'todo-remove' d.id%}" class="btn btn-danger btn-sm"><i class="bi bi-trash"></i> Delete</a>
+                    </td>
+                </tr>
+                {%endfor%}
+            </table>
+        </div>
+        <div class="col-1"></div>
+    </div>
+</div>
+{%endblock%}
