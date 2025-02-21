@@ -1,0 +1,10 @@
+body {
+    background-image: url('../images/todo.jpg'); /* Ensure the correct path */
+    background-size: cover; /* Ensures the image covers the full page */
+    background-position: center; /* Centers the image */
+    background-repeat: no-repeat; /* Prevents repetition */
+    min-height: 100vh; /* Makes it full viewport height */
+    min-width: 100vw; /* Makes it full viewport width */
+    margin: 0; /* Removes default margins */
+    overflow: visible;/* Prevents scrolling if needed */
+}

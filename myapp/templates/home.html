@@ -15,29 +15,14 @@
     <nav class="navbar navbar-expand-lg bg-dark">
         <div class="container-fluid">
             <i class="fa-sharp fa-solid fa-list-ol fa-2xl" style="color: #ffffff;"></i><div class="text-white fs-2 ms-2">  Todo Space</div>
-          <!-- <a class="navbar-brand" href="#">Navbar</a>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button> -->
           <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav ms-auto nav-underline">
               <li class="nav-item">
-                <a class="nav-link text-white" aria-current="page" href="{%url 'todo-add'%}">Add New Task</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link text-white" aria-current="page" href="{%url 'todo-all'%}">All Task</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link text-white" aria-current="page" href="{%url 'index'%}">Summary</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link text-white" href="{%url 'signout'%}"> <i class="fa-solid fa-right-from-bracket" style="color: #ffffff;"></i> Sign Out</a>
+                <a class="nav-link text-white" href="{%url 'signin'%}"> <i class="fa-solid fa-right-from-bracket" style="color: #ffffff;"></i> Sign In</a>
               </li>
             </ul>
           </div>
         </div>
       </nav>
-    {%block main_block%}
-    {%endblock%}
 </body>
 </html>

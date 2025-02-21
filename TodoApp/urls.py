@@ -17,6 +17,8 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from myapp import views
+from django.conf import settings
+from django.conf.urls.static import static
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -28,4 +30,5 @@ urlpatterns = [
     path('todo/<int:pk>/remove/',views.TodoDeleteView.as_view(),name="todo-remove"),
     path('todo/<int:pk>/change/',views.TodoUpdateView.as_view(),name="todo-change"),
     path('todo/all/',views.TodoListView.as_view(),name="todo-all"),
-]
+    path('',views.HomeView.as_view(),name="home"),
+]+ static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

@@ -49,7 +49,6 @@ class SignInView(View):
                 login(request,user_object)
                 print("==session started===")
                 print(request.user)
-                messages.success(request,"Successful login")
                 return redirect("todo-add")
 
             else:
@@ -92,7 +91,7 @@ class SignOutView(View):
         logout(request)
         print("===session ended===")
         messages.success(request,"Signout successful")
-        return redirect("signin")
+        return redirect("home")
 
 @method_decorator(signin_required,name="dispatch")
 class TodoCreateView(View):
@@ -120,7 +119,6 @@ class TodoCreateView(View):
 @method_decorator(signin_required,name="dispatch")
 class TodoDeleteView(View):
     def get(self,request,*args,**kwargs):
-
         id = kwargs.get("pk")
         Todo.objects.get(id=id).delete()
         print("Task deleted")
@@ -130,7 +128,6 @@ class TodoDeleteView(View):
 @method_decorator(signin_required,name="dispatch")
 class TodoUpdateView(View):
     def get(self,request,*args,**kwargs):
-
         id = kwargs.get("pk")
         qs=Todo.objects.get(id=id)
         form_instance = TodoForm(instance=qs)
@@ -156,5 +153,8 @@ class TodoUpdateView(View):
 class TodoListView(View):
     def get(self,request,*args,**kwargs):
         qs=Todo.objects.filter(owner=request.user).order_by("created_at")
-        messages.success(request,"All the added task")
         return render(request,"todo_list.html",{"data":qs})
+
+class HomeView(View):
+    def get(self,request,*args,**kwargs):
+        return render(request,"home.html")
