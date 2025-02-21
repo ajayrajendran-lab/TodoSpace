@@ -90,7 +90,6 @@ class SignOutView(View):
     def get(self,request,*args,**kwargs):
         logout(request)
         print("===session ended===")
-        messages.success(request,"Signout successful")
         return redirect("home")
 
 @method_decorator(signin_required,name="dispatch")
