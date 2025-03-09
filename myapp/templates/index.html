@@ -1,91 +1,11 @@
 {%extends 'base.html'%}
 
 {%block main_block%}
-<!-- <h1 class="mt-5 text-success">Welcome <span class="fs-2 fw-bold text-white">{{request.user}}</span></h1> -->
 
-<!-- <div class="container mt-5">
-    <div class="row">
-        <div class="col-4">
-            <table class="table table-border rounded table-warning shadow">
-                <h2>Category wise</h2>
-                    <tr>
-                        <thead class="thead-dark">
-                            <th>Business</th>
-                            <th>Personal</th>
-                        </thead>
-                    </tr>
-                <tbody>
-                    <tr>
-                        <td>{{category_dict.Business}}</td>
-                        <td>{{category_dict.Personal}}</td>
-                    </tr>
-                </tbody>
-
-            </table>
-        </div>
-        <div class="col-4">
-            <table class="table table-border rounded table-danger shadow">
-                <h2>Priority wise</h2>
-                    <tr>
-                        <thead class="thead-dark">
-                            <th>High</th>
-                            <th>Medium</th>
-                            <th>Low</th>
-                        </thead>
-                    </tr>
-                <tbody>
-                    <tr>
-                        <td>{{priority_dict.High}}</td>
-                        <td>{{priority_dict.Medium}}</td>
-                        <td>{{priority_dict.Low}}</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-        <div class="col-4">
-            <table class="table table-border rounded table-info shadow">
-                <h2>Status wise</h2>
-                    <tr>
-                        <thead class="thead-dark">
-                            <th>Completed</th>
-                            <th>In Progress</th>
-                            <th>Pending</th>
-                        </thead>
-                    </tr>
-                <tbody>
-                    <tr>
-                        <td>{{status_dict.Completed}}</td>
-                        <td>{{status_dict.In_Progress}}</td>
-                        <td>{{status_dict.Pending}}</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-    </div>
-</div> -->
 
 <div class="container">
     <div class="row mt-3">
         <div class="col-6 d-flex justify-content-between align-items-center">
-            <!-- <table class="table table-border rounded table-warning shadow">
-                    <tr>
-                        <thead class="thead-dark">
-                            {%for summary in category_summary%}
-                            <th>{{summary.category}}</th>
-                            {%endfor%}
-                        </thead>
-                    </tr>
-                <tbody>
-                    {%for summary in category_summary%}
-                    <tr>
-                        <td>
-                        {{summary.count}}
-                    </td>
-                    </tr>
-                    {%endfor%}
-                </tbody>
-
-            </table> -->
             {%for summary in category_summary%}
             <div class="w-50 mt-3">
                 <div class="fs-2 fw-bold">{{summary.category}}: ({{summary.count}})</div>

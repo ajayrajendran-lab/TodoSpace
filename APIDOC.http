@@ -1,0 +1,51 @@
+###
+POST http://127.0.0.1:8000/api/signup/
+Content-Type: application/json
+
+{
+    "username":"Navya",
+    "email":"navyavijayakumar3@gmail.com",
+    "password":"Password@123"
+}
+
+#api for fetching all todos
+###
+GET http://127.0.0.1:8000/api/todos/
+Authorization: Basic Navya:Password@123
+
+#api for creating new todo
+###
+POST http://127.0.0.1:8000/api/todos/
+Content-Type: application/json
+Authorization: Basic Navya:Password@123
+
+{
+    "title":"Project submission"
+}
+
+#api for fetching one todo
+###
+GET http://127.0.0.1:8000/api/todos/16/
+Authorization: Basic ajayrajendran:Password@123
+
+#api for updating a todo
+### 
+PUT http://127.0.0.1:8000/api/todos/18/
+Content-Type: application/json
+Authorization: Basic ajayrajendran:Password@123
+
+{
+    "title": "Project documentation",
+    "category": "Personal",
+    "priority": "High",
+    "status": "Pending"
+}
+
+#api for fetching one todo
+###
+DELETE  http://127.0.0.1:8000/api/todos/15/
+Authorization: Basic Navya:Password@123
+
+###
+GET http://127.0.0.1:8000/api/todos/summary/
+Authorization: Basic ajayrajendran:Password@123

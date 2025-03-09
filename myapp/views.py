@@ -65,19 +65,10 @@ class IndexView(View):
         priority_summary=Todo.objects.filter(owner=request.user).values("priority").annotate(count=Count("priority"))
 
         status_summary=Todo.objects.filter(owner=request.user).values("status").annotate(count=Count("status"))
+        
         print(category_summary)
         print(priority_summary)
         print(status_summary)
-
-
-        # context ={
-        #     "category_dict":{cat.get("category"):cat.get("category__count") for cat in category_summary},
-        #     "priority_dict":{p.get("priority"):p.get("priority__count") for p in priority_summary},
-        #     "status_dict":{stat.get("status"):stat.get("status__count") for stat in status_summary}
-        # }
-        # context.update(category_dict)
-        # context.update(priority_dict)
-        # print(context)
         context = {
             "category_summary":category_summary,
             "priority_summary":priority_summary,
